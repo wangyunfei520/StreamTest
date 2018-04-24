@@ -31,4 +31,8 @@ public interface RequestApiService {
     @Headers("Accept-Encoding: application/json")
     @POST("home/test3")
     Observable<JsonElement> test(@Field("username") String name, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("course/test1")
+    Observable<JsonElement> getCoursebyId(@Field("courseId") String courseId, @Field("courseName") String courseName);
 }

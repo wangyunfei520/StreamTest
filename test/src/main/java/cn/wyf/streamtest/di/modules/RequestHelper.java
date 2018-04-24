@@ -61,4 +61,9 @@ public class RequestHelper {
         return requestAPI.test("wangyunfei","123456")
                 .map(jsonElement -> jsonElement);
     }
+
+    public Observable<JsonElement> getCoursebyId(){
+        return requestAPI.getCoursebyId("1","测试")
+                .map(jsonElement -> jsonElement);
+    }
 }

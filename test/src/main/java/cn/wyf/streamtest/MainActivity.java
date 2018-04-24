@@ -25,6 +25,42 @@ public class MainActivity extends BaseActivity {
 
         initviews();
 
+        getCoursrbyId();
+
+//        test();
+
+//        addperson();
+
+//        allPerson();
+    }
+
+    private void getCoursrbyId(){
+        addSubscription(RequestHelper.getInstance().getCoursebyId(), new ApiCallback() {
+            @Override
+            public void onHandleSuccess(Object response) {
+                XLogger.i("Living suc");
+                XLogger.printJson(response.toString());
+            }
+
+            @Override
+            public void onHandleFailure(String msg) {
+                XLogger.i("Living fail");
+                XLogger.e(msg);
+            }
+
+            @Override
+            public void onHandleFinish() {
+                XLogger.v("onHandleFinish");
+            }
+
+            @Override
+            public void onSubscribe(Disposable d) {
+                compositeDisposable.add(d);
+            }
+        });
+    }
+
+    private void test() {
         addSubscription(RequestHelper.getInstance().test(), new ApiCallback() {
             @Override
             public void onHandleSuccess(Object response) {
@@ -48,10 +84,6 @@ public class MainActivity extends BaseActivity {
                 compositeDisposable.add(d);
             }
         });
-
-//        addperson();
-
-        allPerson();
     }
 
     private void initviews() {
